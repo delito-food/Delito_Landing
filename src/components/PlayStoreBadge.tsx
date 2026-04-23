@@ -1,7 +1,7 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
-
 interface PlayStoreBadgeProps {
   height?: number;
   className?: string;
@@ -9,6 +9,8 @@ interface PlayStoreBadgeProps {
 }
 
 export default function PlayStoreBadge({ height = 52, className = "", onClick }: PlayStoreBadgeProps) {
+  const id = React.useId().replace(/:/g, "");
+  
   return (
     <motion.button
       onClick={onClick}
@@ -53,7 +55,7 @@ export default function PlayStoreBadge({ height = 52, className = "", onClick }:
         </text>
         {/* Play triangle icon */}
         <defs>
-          <linearGradient id="lgrad" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id={`lgrad1_${id}`} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#00A0FF" />
             <stop offset="1%" stopColor="#00A1FF" />
             <stop offset="26%" stopColor="#00BEFF" />
@@ -61,17 +63,17 @@ export default function PlayStoreBadge({ height = 52, className = "", onClick }:
             <stop offset="76%" stopColor="#00DFFF" />
             <stop offset="100%" stopColor="#00E3FF" />
           </linearGradient>
-          <linearGradient id="lgrad2" x1="0" y1="1" x2="0" y2="0">
+          <linearGradient id={`lgrad2_${id}`} x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="#FFE000" />
             <stop offset="41%" stopColor="#FFBD00" />
             <stop offset="78%" stopColor="#FFA500" />
             <stop offset="100%" stopColor="#FF9C00" />
           </linearGradient>
-          <linearGradient id="lgrad3" x1="1" y1="1" x2="0" y2="0">
+          <linearGradient id={`lgrad3_${id}`} x1="1" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="#FF3A44" />
             <stop offset="100%" stopColor="#C31162" />
           </linearGradient>
-          <linearGradient id="lgrad4" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={`lgrad4_${id}`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#32A071" />
             <stop offset="7%" stopColor="#2DA771" />
             <stop offset="48%" stopColor="#15CF74" />
@@ -82,22 +84,22 @@ export default function PlayStoreBadge({ height = 52, className = "", onClick }:
         {/* Blue piece */}
         <path
           d="M85.3 31.5a9.3 9.3 0 0 0-2.1 6.5v116a9.3 9.3 0 0 0 2.1 6.5l.3.4 64.8-64.8v-1.5l-64.8-64z"
-          fill="url(#lgrad)"
+          fill={`url(#lgrad1_${id})`}
         />
         {/* Yellow piece */}
         <path
           d="M172 117.3l-21.6-21.6v-1.5L172 72.5l.5.3 25.6 14.6c7.3 4.2 7.3 11 0 15.1l-25.6 14.6z"
-          fill="url(#lgrad2)"
+          fill={`url(#lgrad2_${id})`}
         />
         {/* Red piece */}
         <path
           d="M172.5 117l-22.1-22.1-65.1 65.1a7.5 7.5 0 0 0 9.6.4L172.5 117z"
-          fill="url(#lgrad3)"
+          fill={`url(#lgrad3_${id})`}
         />
         {/* Green piece */}
         <path
           d="M172.5 72.8L94.9 29.4a7.5 7.5 0 0 0-9.6.4l65.1 65.1z"
-          fill="url(#lgrad4)"
+          fill={`url(#lgrad4_${id})`}
         />
       </svg>
     </motion.button>

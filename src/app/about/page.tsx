@@ -195,11 +195,11 @@ export default function AboutPage() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/cta-person.png"
-                  alt="Delito food delivery"
+                  src="/images/hero-pizza.png"
+                  alt="Delito authentic food"
                   width={600}
                   height={500}
-                  className="w-full h-[300px] sm:h-[400px] object-cover"
+                  className="w-full h-[300px] sm:h-[400px] object-cover scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-dark/40 to-transparent" />
               </div>

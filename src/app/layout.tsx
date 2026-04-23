@@ -18,6 +18,9 @@ export const metadata: Metadata = {
       "Start your day with perfect local flavors—from your favorite street vendors to top restaurants.",
     type: "website",
   },
+  icons: {
+    icon: "/images/delito_favico.png",
+  },
 };
 
 export default function RootLayout({

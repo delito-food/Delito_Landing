@@ -79,8 +79,9 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
+                className="flex items-center justify-center lg:justify-start"
               >
-                <PlayStoreBadge height={56} onClick={() => setIsModalOpen(true)} />
+                <PlayStoreBadge height={56} onClick={() => setIsModalOpen(true)} className="mx-auto lg:mx-0" />
               </motion.div>
 
               {/* Mobile-only: Quick stats row */}
