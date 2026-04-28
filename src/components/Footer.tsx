@@ -12,8 +12,10 @@ const companyLinks = [
   { label: "Contact", href: "/about#contact" },
 ];
 const resourceLinks = [
-  { label: "Refund Policy", href: "#" },
-  { label: "FAQ", href: "#" },
+  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Privacy Policy", href: "/legal" },
+  { label: "Terms & Conditions", href: "/legal" },
 ];
 
 const socialLinks = [

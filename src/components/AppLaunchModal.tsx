@@ -2,12 +2,36 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Bell, Sparkles } from "lucide-react";
+import { X, Sparkles } from "lucide-react";
 
 interface AppLaunchModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const apps = [
+  {
+    name: "Delito App",
+    desc: "Order food from your favourite restaurants & street vendors",
+    icon: "/delito_logo.jpeg",
+    tag: "For Customers",
+    tagColor: "bg-green-100 text-green-700",
+  },
+  {
+    name: "Vendor App",
+    desc: "Manage your restaurant, menu & orders all in one place",
+    icon: "/vendor_logo.jpeg",
+    tag: "For Restaurants",
+    tagColor: "bg-yellow-100 text-yellow-700",
+  },
+  {
+    name: "Delivery App",
+    desc: "Earn on your schedule delivering orders across the city",
+    icon: "/deliveryman_logo.jpeg",
+    tag: "For Delivery Partners",
+    tagColor: "bg-blue-100 text-blue-700",
+  },
+];
 
 export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps) {
   return (
@@ -34,8 +58,7 @@ export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps)
             className="relative w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl"
           >
             {/* Top Gradient Banner */}
-            <div className="relative hero-gradient hero-pattern px-6 pt-8 pb-12 text-center overflow-hidden">
-              {/* Decorative circles */}
+            <div className="relative hero-gradient hero-pattern px-6 pt-8 pb-10 text-center overflow-hidden">
               <div className="absolute top-4 right-6 w-24 h-24 bg-yellow/15 rounded-full blur-2xl pointer-events-none" />
               <div className="absolute bottom-2 left-8 w-20 h-20 bg-yellow/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -48,27 +71,10 @@ export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps)
                 <X size={16} strokeWidth={2.5} />
               </button>
 
-              {/* Logo */}
-              <motion.div
-                initial={{ y: -10 }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
-                className="flex justify-center mb-4"
-              >
-                <Image
-                  src="/images/delito.png"
-                  alt="Delito Logo"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-lg"
-                />
-              </motion.div>
-
-              {/* Sparkle Icon + Title */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
               >
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Sparkles className="w-5 h-5 text-yellow animate-pulse" />
@@ -78,49 +84,56 @@ export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps)
                   <Sparkles className="w-5 h-5 text-yellow animate-pulse" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-                  App Launching Soon!
+                  Apps Launching Soon!
                 </h3>
+                <p className="text-white/70 text-sm mt-2">
+                  Three apps. One platform. Built for everyone.
+                </p>
               </motion.div>
             </div>
 
-            {/* Content Section */}
-            <div className="px-6 py-8 text-center space-y-5">
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                className="text-sm sm:text-base text-text-muted leading-relaxed"
-              >
-                We&apos;re cooking up something amazing! The <strong className="text-green-mid">Delito App</strong> will soon be available on the Google Play Store. Stay tuned for the ultimate food experience.
-              </motion.p>
-
-              {/* Notification CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="flex flex-col items-center gap-3"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-yellow text-green-dark font-bold text-sm rounded-full hover:bg-yellow-dark transition-all duration-300 shadow-md cursor-pointer"
+            {/* App Cards */}
+            <div className="px-5 py-6 space-y-3">
+              {apps.map((app, i) => (
+                <motion.div
+                  key={app.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+                  className="flex items-center gap-4 bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100"
                 >
-                  <Bell size={16} strokeWidth={2.5} />
-                  Notify Me When It Launches
-                </motion.button>
-                <span className="text-xs text-text-muted">
-                  No spam, just delicious updates 🍽️
-                </span>
-              </motion.div>
+                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 shadow-sm bg-white">
+                    <Image
+                      src={app.icon}
+                      alt={app.name}
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                      <p className="text-sm font-bold text-gray-900">{app.name}</p>
+                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${app.tagColor}`}>
+                        {app.tag}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500 leading-snug">{app.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-              {/* Bottom accent */}
-              <div className="flex items-center justify-center gap-2 pt-2">
-                <div className="w-8 h-0.5 bg-green-light rounded-full" />
-                <span className="text-[10px] font-semibold text-text-muted tracking-wider uppercase">
+            {/* Footer */}
+            <div className="px-5 pb-6 text-center space-y-3">
+              <p className="text-xs text-gray-400">
+                Available soon on Google Play Store 🚀
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-8 h-0.5 bg-green-200 rounded-full" />
+                <span className="text-[10px] font-semibold text-gray-400 tracking-wider uppercase">
                   Delito • Street ka Swaad
                 </span>
-                <div className="w-8 h-0.5 bg-green-light rounded-full" />
+                <div className="w-8 h-0.5 bg-green-200 rounded-full" />
               </div>
             </div>
           </motion.div>

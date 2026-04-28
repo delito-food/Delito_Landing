@@ -55,6 +55,7 @@ export default function CTASection() {
                 src="/images/cta-person.png"
                 alt="Person enjoying delicious pizza"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-top"
               />
               {/* Yellow overlay for blend */}
