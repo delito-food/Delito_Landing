@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Sparkles } from "lucide-react";
+import { X, Sparkles, ExternalLink } from "lucide-react";
 
 interface AppLaunchModalProps {
   isOpen: boolean;
@@ -16,6 +16,8 @@ const apps = [
     icon: "/delito_logo.jpeg",
     tag: "For Customers",
     tagColor: "bg-green-100 text-green-700",
+    href: null,
+    comingSoon: true,
   },
   {
     name: "Vendor App",
@@ -23,6 +25,8 @@ const apps = [
     icon: "/vendor_logo.jpeg",
     tag: "For Restaurants",
     tagColor: "bg-yellow-100 text-yellow-700",
+    href: "https://play.google.com/store/apps/details?id=com.platoos.vendor&pcampaignid=web_share",
+    comingSoon: false,
   },
   {
     name: "Delivery App",
@@ -30,6 +34,8 @@ const apps = [
     icon: "/deliveryman_logo.jpeg",
     tag: "For Delivery Partners",
     tagColor: "bg-blue-100 text-blue-700",
+    href: "https://play.google.com/store/apps/details?id=com.platoos.delivery&pcampaignid=web_share",
+    comingSoon: false,
   },
 ];
 
@@ -79,12 +85,12 @@ export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps)
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Sparkles className="w-5 h-5 text-yellow animate-pulse" />
                   <span className="text-xs font-bold tracking-widest text-yellow uppercase">
-                    Coming Soon
+                    Our Apps
                   </span>
                   <Sparkles className="w-5 h-5 text-yellow animate-pulse" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-                  Apps Launching Soon!
+                  Download Delito Apps
                 </h3>
                 <p className="text-white/70 text-sm mt-2">
                   Three apps. One platform. Built for everyone.
@@ -94,39 +100,69 @@ export default function AppLaunchModal({ isOpen, onClose }: AppLaunchModalProps)
 
             {/* App Cards */}
             <div className="px-5 py-6 space-y-3">
-              {apps.map((app, i) => (
-                <motion.div
-                  key={app.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                  className="flex items-center gap-4 bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100"
-                >
-                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 shadow-sm bg-white">
-                    <Image
-                      src={app.icon}
-                      alt={app.name}
-                      fill
-                      className="object-contain p-1"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                      <p className="text-sm font-bold text-gray-900">{app.name}</p>
-                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${app.tagColor}`}>
-                        {app.tag}
-                      </span>
+              {apps.map((app, i) => {
+                const cardContent = (
+                  <>
+                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 shadow-sm bg-white">
+                      <Image
+                        src={app.icon}
+                        alt={app.name}
+                        fill
+                        sizes="56px"
+                        className="object-contain p-1"
+                      />
                     </div>
-                    <p className="text-xs text-gray-500 leading-snug">{app.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                        <p className="text-sm font-bold text-gray-900">{app.name}</p>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${app.tagColor}`}>
+                          {app.tag}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-snug">{app.desc}</p>
+                    </div>
+                    {/* Action indicator */}
+                    {app.comingSoon ? (
+                      <span className="shrink-0 text-[10px] font-bold text-orange-500 bg-orange-50 px-2.5 py-1 rounded-full">
+                        Soon
+                      </span>
+                    ) : (
+                      <ExternalLink className="shrink-0 w-4 h-4 text-green-600" />
+                    )}
+                  </>
+                );
+
+                return app.comingSoon ? (
+                  <motion.div
+                    key={app.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+                    className="flex items-center gap-4 bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100 opacity-75"
+                  >
+                    {cardContent}
+                  </motion.div>
+                ) : (
+                  <motion.a
+                    key={app.name}
+                    href={app.href!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+                    className="flex items-center gap-4 bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100 hover:bg-green-50 hover:border-green-200 transition-colors duration-200 cursor-pointer"
+                  >
+                    {cardContent}
+                  </motion.a>
+                );
+              })}
             </div>
 
             {/* Footer */}
             <div className="px-5 pb-6 text-center space-y-3">
               <p className="text-xs text-gray-400">
-                Available soon on Google Play Store 🚀
+                Available on Google Play Store 🚀
               </p>
               <div className="flex items-center justify-center gap-2">
                 <div className="w-8 h-0.5 bg-green-200 rounded-full" />

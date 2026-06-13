@@ -5,6 +5,7 @@ import PromotionsDelivery from "@/components/PromotionsDelivery";
 import PartnersBar from "@/components/PartnersBar";
 import DiscoverFlavors from "@/components/DiscoverFlavors";
 import CTASection from "@/components/CTASection";
+import DelitoApps from "@/components/DelitoApps";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <PartnersBar />
       <DiscoverFlavors />
       <CTASection />
+      <DelitoApps />
       <Footer />
     </main>
   );
