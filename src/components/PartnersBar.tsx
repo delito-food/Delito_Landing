@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "Rangeela Darbar", text: "Rangeela Darbar" },
-  { name: "pizza bazar", text: "pizza bazar" },
+  { name: "Bajrang King & Vadapav", text: "Bajrang King & Vadapav" },
+  { name: "Yummies Family Restaurent", text: "Yummies Family Restaurent" },
   { name: "Spicy food", text: "Spicy food" },
   { name: "Hathras Chaat Bhandar", text: "Hathras Chaat Bhandar" },
   { name: "Radhe Kitchen", text: "Radhe Kitchen" },
