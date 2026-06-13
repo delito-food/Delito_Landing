@@ -73,11 +73,11 @@ export default function PromotionsDelivery() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
-              {/* Sandwich Image */}
+              {/* Vada Pav Image */}
               <div className="rounded-3xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/sandwich.png"
-                  alt="Delicious loaded sub sandwich"
+                  src="/images/food-vadapav.png"
+                  alt="Mumbai-style Vada Pav"
                   width={600}
                   height={360}
                   className="w-full h-[200px] sm:h-[280px] md:h-[320px] object-cover"

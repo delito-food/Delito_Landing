@@ -6,24 +6,24 @@ import { Plus } from "lucide-react";
 
 const featuredFoods = [
   {
-    title: "Paneer Butter Masala",
-    image: "/images/food-paneer.png",
-    bg: "bg-green-pale",
-  },
-  {
-    title: "Steamed Momos Plate",
-    image: "/images/food-momos.png",
+    title: "Crispy Samosa",
+    image: "/images/food-samosa.png",
     bg: "bg-yellow-light",
   },
   {
-    title: "Green House Full Pizza",
-    image: "/images/food-biryani.png",
+    title: "Aloo Tikki Chaat",
+    image: "/images/food-chaat.png",
+    bg: "bg-green-pale",
+  },
+  {
+    title: "Masala Dosa",
+    image: "/images/food-dosa.png",
     bg: "bg-[#E8F5E9]",
   },
   {
-    title: "Lemon & Ricotta Ravioli",
-    image: "/images/food-pasta.png",
-    bg: "bg-[#F3E5F5]",
+    title: "Chole Bhature",
+    image: "/images/food-cholebhature.png",
+    bg: "bg-[#FFF3E0]",
   },
 ];
 
@@ -52,13 +52,12 @@ export default function FeaturedFoods() {
           className="flex flex-col md:flex-row md:items-end gap-4 sm:gap-6 md:gap-12 mb-10 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-main leading-tight md:max-w-md">
-            Featured Foods and Popular Dishes this week
+            Desi Favourites & Street Food Hits This Week
           </h2>
           <p className="text-sm sm:text-base text-text-muted max-w-md leading-relaxed">
-            From gourmet meals to comfort food, choose exactly what you&apos;re
-            craving. Get live updates on the status of your order from kitchen to
-            doorstep. Enjoy your delicious meal delivered fresh and hot right to
-            your doorstep.
+            From garam samosas to loaded chaat — your favourite desi
+            cravings delivered hot and fresh. Track your order live from
+            kitchen to doorstep. Ab ghar baithe khao apni marzi!
           </p>
         </motion.div>
 

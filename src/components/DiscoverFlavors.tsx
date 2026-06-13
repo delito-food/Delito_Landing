@@ -7,28 +7,28 @@ import AppLaunchModal from "./AppLaunchModal";
 
 const dishes = [
   {
-    image: "/images/food-kebab.png",
-    category: "Mid Night Drip",
-    title: "Istanbul • Doner Kebab",
-    desc: "Perfect for slow evenings and deep thoughts.",
-    price: "₹250.00",
+    image: "/images/food-panipuri.png",
+    category: "Street Food",
+    title: "Pani Puri • Golgappa",
+    desc: "Crispy puris filled with spicy tangy water — the ultimate Indian street craving!",
+    price: "₹60.00",
+    originalPrice: "₹80",
+  },
+  {
+    image: "/images/food-butterchicken.png",
+    category: "Main Course",
+    title: "Butter Chicken • Naan",
+    desc: "Rich creamy tomato gravy with tender chicken — a classic North Indian favourite.",
+    price: "₹249.00",
     originalPrice: "₹320",
   },
   {
-    image: "/images/food-pasta.png",
-    category: "Sunny Beans",
-    title: "Pasta • Perfection Foods",
-    desc: "Bright, vibrant, and ideal for your morning ritual.",
-    price: "₹199.00",
-    originalPrice: "₹315",
-  },
-  {
     image: "/images/food-thali.png",
-    category: "Velvet Blend",
-    title: "Bella • Indian Thali",
-    desc: "Balanced and smooth — a daily favorite.",
-    price: "₹154.00",
-    originalPrice: "₹243",
+    category: "Full Meal",
+    title: "Special Indian Thali",
+    desc: "A complete balanced meal — dal, sabzi, roti, rice, raita & more. Just like ghar ka khana!",
+    price: "₹179.00",
+    originalPrice: "₹250",
   },
 ];
 
