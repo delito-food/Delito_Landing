@@ -52,11 +52,11 @@ export default function CTASection() {
               className="relative bg-yellow min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] flex items-end justify-center overflow-hidden"
             >
               <Image
-                src="/images/cta-person.png"
-                alt="Person enjoying delicious pizza"
+                src="/images/cta-indian-feast.png"
+                alt="Happy customer enjoying delicious Indian food"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
               {/* Yellow overlay for blend */}
               <div className="absolute inset-0 bg-yellow/10 pointer-events-none" />
