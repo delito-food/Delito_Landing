@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturedFoods from "@/components/FeaturedFoods";
+import PricingSection from "@/components/PricingSection";
 import PromotionsDelivery from "@/components/PromotionsDelivery";
 import PartnersBar from "@/components/PartnersBar";
 import DiscoverFlavors from "@/components/DiscoverFlavors";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FeaturedFoods />
+      <PricingSection />
       <PromotionsDelivery />
       <PartnersBar />
       <DiscoverFlavors />
@@ -23,3 +25,4 @@ export default function Home() {
     </main>
   );
 }
+

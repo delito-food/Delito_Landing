@@ -214,7 +214,11 @@ export default function Footer() {
               />
               <span>Street ka Swaad. Restaurant ki Shaan.</span>
             </div>
-            <p>© Copyright Delito 2026</p>
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
+              <span className="text-text-muted/50">Built with ❤️ by <strong className="text-text-muted/70">Anmol Upadhyay</strong></span>
+              <span className="hidden sm:inline text-gray-300">|</span>
+              <p>© Copyright Delito 2026</p>
+            </div>
           </div>
         </div>
       </footer>
