@@ -134,123 +134,81 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative flex items-center justify-center"
+              className="relative flex items-center justify-center min-h-[340px] sm:min-h-[400px]"
             >
-              {/* Big 35% circle */}
-              <div className="relative">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.4,
-                    type: "spring",
-                    stiffness: 200,
-                  }}
-                  className="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] rounded-full bg-gradient-to-br from-yellow/20 to-yellow/5 border border-yellow/20 flex items-center justify-center relative"
-                >
-                  <div className="text-center">
-                    <div className="text-6xl sm:text-7xl md:text-8xl font-black text-yellow leading-none">
-                      35<span className="text-4xl sm:text-5xl md:text-6xl">%</span>
-                    </div>
-                    <div className="text-sm sm:text-base font-bold text-white/60 uppercase tracking-widest mt-1">
-                      Cheaper
-                    </div>
-                  </div>
-
-                  {/* Orbiting rings */}
-                  <div className="absolute inset-0 rounded-full border border-yellow/10 animate-pulse" />
-                  <div className="absolute -inset-4 rounded-full border border-dashed border-yellow/10" />
-                  <div className="absolute -inset-8 rounded-full border border-yellow/5" />
-                </motion.div>
-
-                {/* Floating badge top-right */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                  className="absolute -top-4 -right-4 sm:right-0 bg-white rounded-2xl shadow-xl p-3 sm:p-4 animate-float-slow"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 bg-emerald-50 rounded-xl flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-emerald-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-900">
-                        No Hidden Fees
-                      </p>
-                      <p className="text-[10px] text-gray-500">
-                        Transparent pricing
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Floating badge bottom-left */}
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute -bottom-4 -left-4 sm:left-0 bg-white rounded-2xl shadow-xl p-3 sm:p-4 animate-float"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 bg-yellow-light rounded-xl flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-yellow-dark"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-900">
-                        Same Quality
-                      </p>
-                      <p className="text-[10px] text-gray-500">
-                        Directly from restaurants
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Food comparison image below */}
+              {/* Big 35% circle with Delito logo */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.4,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="relative"
+              >
+                <div className="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] rounded-full bg-gradient-to-br from-yellow/20 via-yellow/10 to-transparent border-2 border-yellow/20 flex flex-col items-center justify-center">
+                  {/* Delito Logo */}
+                  <Image
+                    src="/images/delito.png"
+                    alt="Delito"
+                    width={80}
+                    height={80}
+                    className="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-3"
+                  />
+                  <div className="text-5xl sm:text-6xl md:text-7xl font-black text-yellow leading-none">
+                    35<span className="text-3xl sm:text-4xl md:text-5xl">%</span>
+                  </div>
+                  <div className="text-xs sm:text-sm font-bold text-white/50 uppercase tracking-[0.2em] mt-1">
+                    Sasta
+                  </div>
+                </div>
+
+                {/* Subtle outer ring */}
+                <div className="absolute -inset-3 rounded-full border border-yellow/8" />
+              </motion.div>
+
+              {/* Receipt-style floating card — top right */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute bottom-0 right-0 hidden lg:block"
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="absolute top-0 -right-2 sm:right-4 bg-white rounded-xl shadow-lg p-3 max-w-[160px] animate-float-slow"
               >
-                <Image
-                  src="/images/price-compare.png"
-                  alt="Price comparison visual"
-                  width={200}
-                  height={200}
-                  className="w-44 h-44 object-contain opacity-80 rounded-2xl"
-                />
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">Your savings</p>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-lg font-black text-green-mid">₹122</span>
+                  <span className="text-[10px] text-gray-400">saved today</span>
+                </div>
+                <div className="mt-1.5 h-1 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full w-[65%] bg-gradient-to-r from-green-mid to-yellow rounded-full" />
+                </div>
+              </motion.div>
+
+              {/* Delito app icon card — bottom left */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.9, duration: 0.5 }}
+                className="absolute bottom-2 -left-2 sm:left-4 bg-white rounded-xl shadow-lg p-3 animate-float"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Image
+                    src="/delito_logo.jpeg"
+                    alt="Delito App"
+                    width={36}
+                    height={36}
+                    className="w-9 h-9 rounded-lg object-contain"
+                  />
+                  <div>
+                    <p className="text-xs font-bold text-gray-900">Delito App</p>
+                    <p className="text-[10px] text-gray-500">Sab sasta milega!</p>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
