@@ -18,7 +18,6 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [vegMode, setVegMode] = useState(false);
 
   return (
     <>
@@ -57,20 +56,6 @@ export default function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
-            </div>
-
-            {/* Pure Veg Toggle */}
-            <div className="hidden lg:flex items-center gap-2 mr-3">
-              <button
-                onClick={() => setVegMode(!vegMode)}
-                className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer border ${
-                  vegMode
-                    ? 'bg-green-mid text-white border-green-mid shadow-md shadow-green-mid/20'
-                    : 'bg-white/10 text-white/70 border-white/20 hover:bg-white/15'
-                }`}
-              >
-                Pure Veg
-              </button>
             </div>
 
             {/* Desktop Action – Download from Play Store */}
@@ -114,16 +99,7 @@ export default function Navbar() {
                     {link.label}
                   </motion.a>
                 ))}
-                <button
-                  onClick={() => setVegMode(!vegMode)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer border ${
-                    vegMode
-                      ? 'bg-green-mid text-white border-green-mid'
-                      : 'bg-white/10 text-white/70 border-white/20'
-                  }`}
-                >
-                  Pure Veg
-                </button>
+
                 <div className="pt-4 border-t border-white/10">
                   <PlayStoreBadge height={44} onClick={() => { setIsOpen(false); setIsModalOpen(true); }} />
                 </div>

@@ -91,17 +91,14 @@ const cardVariants: Variants = {
 
 export default function TimeFoodCategories() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const idx = getCurrentPeriodIndex();
     setCurrentIndex(idx);
-    setActiveIndex(idx);
   }, []);
 
-  const activePeriod = timePeriods[activeIndex];
-  const isCurrentlyActive = activeIndex === currentIndex;
+  const activePeriod = timePeriods[currentIndex];
 
   return (
     <>
@@ -123,65 +120,45 @@ export default function TimeFoodCategories() {
             </p>
           </motion.div>
 
-          {/* Time Pills */}
+          {/* Time Indicator */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6"
+            className="flex justify-center mb-10 md:mb-14"
           >
-            {timePeriods.map((period, index) => (
-              <button
-                key={period.id}
-                onClick={() => setActiveIndex(index)}
-                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  activeIndex === index
-                    ? "bg-green-dark text-white shadow-md"
-                    : "bg-green-pale text-text-muted hover:bg-green-light"
-                }`}
-              >
-                {period.label}
-              </button>
-            ))}
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-text-muted/60 uppercase tracking-[0.2em] text-center filter grayscale">
+              {activePeriod.label}
+            </h3>
           </motion.div>
 
-          {/* Available Badge */}
-          <div className="flex justify-center mb-10 md:mb-12">
-            {isCurrentlyActive && (
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-green-pale text-green-dark text-xs font-semibold rounded-full border border-green-light">
-                <span className="w-1.5 h-1.5 bg-green-mid rounded-full animate-pulse" />
-                Abhi Available
-              </span>
-            )}
-          </div>
-
-          {/* Food Cards */}
+          {/* Food Items (No Card UI) */}
           <motion.div
             key={activePeriod.id}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 md:pb-0 md:overflow-visible md:grid md:grid-cols-4 scrollbar-hide"
+            className="flex gap-6 sm:gap-10 md:gap-12 overflow-x-auto pb-4 md:pb-0 md:overflow-visible justify-start md:justify-center scrollbar-hide"
           >
             {activePeriod.items.map((item) => (
               <motion.div
                 key={item.name}
                 variants={cardVariants}
-                whileHover={{ y: -4 }}
+                whileHover={{ scale: 1.03 }}
                 onClick={() => setIsModalOpen(true)}
-                className="flex-shrink-0 w-[160px] sm:w-auto bg-background rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer flex flex-col items-center text-center"
+                className="flex-shrink-0 flex flex-col items-center text-center cursor-pointer group"
               >
-                <div className="relative w-[100px] h-[100px] mb-4">
+                <div className="relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] mb-4 md:mb-6 rounded-full overflow-hidden shadow-none group-hover:opacity-90 transition-opacity duration-300">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={100}
-                    height={100}
-                    className="w-full h-full object-cover rounded-full"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-text-main">
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-text-main tracking-wide">
                   {item.name}
                 </h3>
               </motion.div>
