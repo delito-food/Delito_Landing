@@ -27,7 +27,7 @@ export default function PromotionsDelivery() {
                   Promotions and Discounts
                 </span>
                 <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-main leading-tight">
-                  Bringing Flavor to Your Doorstep
+                  Aapke Mohalle ka Swaad, Aapke Darwaze Tak
                 </h2>
               </div>
 
@@ -42,9 +42,9 @@ export default function PromotionsDelivery() {
                     Promotions and Discounts
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    Save big with Delito&apos;s exclusive promotions! Discover discounts,
-                    special offers, and meal bundles tailored just for you. Keep an
-                    eye on our promotions section to enjoy
+                    Delito pe milega har hafte naya offer! Meal combos, festival
+                    discounts, aur pehle order pe special deals — bus app kholo
+                    aur save karo.
                   </p>
                 </div>
 
@@ -57,9 +57,8 @@ export default function PromotionsDelivery() {
                     Order for delivery or pickup
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    Stay in the loop with real-time order tracking. Receive updates
-                    on your order&apos;s preparation, dispatch, and estimated delivery
-                    time. Our notifications keep you informed, so you know exactly
+                    Order karo aur live dekhte raho — kitchen se nikla, rider ke
+                    paas pahuncha, aur ab tumhare ghar aa raha hai. Sab kuch live!
                   </p>
                 </div>
               </div>
@@ -87,11 +86,11 @@ export default function PromotionsDelivery() {
               {/* Countries + CTA */}
               <div className="space-y-4">
                 <h3 className="text-lg font-bold text-text-main">
-                  Countries where we deliver
+                  Hathras ke har kone mein delivery
                 </h3>
                 <p className="text-sm text-text-muted leading-relaxed">
-                  Save time with delivery or order ahead and skip the fees with
-                  pickup. You can schedule orders for later, too.
+                  Chahe Station Road ho ya Verma Colony, Sadabad ho ya Mursan —
+                  hum har jagah deliver karte hain. Jaldi order karo!
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}

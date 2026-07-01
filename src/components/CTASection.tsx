@@ -28,9 +28,8 @@ export default function CTASection() {
                 </span>
               </h2>
               <p className="mt-4 text-sm sm:text-base text-text-muted leading-relaxed max-w-md">
-                Transform the way you eat with our curated selection of local
-                favorites and international cuisines. Real-time tracking,
-                eco-friendly packaging, and doorstep delivery.
+                Gharpe baithe apne mohalle ke best khane ka maza lo. Real-time
+                tracking, fast delivery, aur hamesha sahi daam.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}

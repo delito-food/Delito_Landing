@@ -66,9 +66,9 @@ export default function PricingSection() {
                   <span className="text-yellow">Lower price.</span>
                 </h2>
                 <p className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed">
-                  Why pay more for the exact same meal? Delito cuts the middleman
-                  markup — you get <strong className="text-white/80">35% lower prices</strong> on
-                  every order compared to other apps. No compromise on quality.
+                  No hidden delivery spikes. Just honest prices for your favorite food.
+                  We keep it simple — same restaurant, same dish,{" "}
+                  <strong className="text-white/80">less price</strong>.
                 </p>
               </div>
 
@@ -126,6 +126,19 @@ export default function PricingSection() {
               >
                 Start Saving Now
               </motion.button>
+
+              {/* Payment Trust Signals */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">We Accept</p>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-white/80 font-medium mb-3">
+                  <span>Cash on Delivery</span>
+                  <span className="text-white/30">•</span>
+                  <span>UPI Payments</span>
+                  <span className="text-white/30">•</span>
+                  <span>Secured by Razorpay</span>
+                </div>
+                <p className="text-xs text-emerald-400/80 font-medium">Pehli baar? Cash on Delivery se order karein. Bilkul safe hai!</p>
+              </div>
             </motion.div>
 
             {/* ── Right: Visual ── */}

@@ -70,8 +70,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-sm sm:text-base md:text-lg text-white/70 max-w-md leading-relaxed"
               >
-                Start your day with perfect local flavors—from your favorite
-                street vendors to top restaurants.
+                Fresh, hot, and right on time. We navigate the lanes so you don&apos;t have to.
               </motion.p>
 
               {/* Play Store Download Button */}
@@ -102,8 +101,8 @@ export default function HeroSection() {
                 </div>
                 <div className="w-px h-8 bg-white/15" />
                 <div>
-                  <p className="text-xl sm:text-2xl font-extrabold text-yellow">🌱</p>
-                  <p className="text-[10px] sm:text-xs text-white/50 font-medium">Eco Friendly</p>
+                  <p className="text-xl sm:text-2xl font-extrabold text-yellow">30 min</p>
+                  <p className="text-[10px] sm:text-xs text-white/50 font-medium">Avg. Delivery</p>
                 </div>
               </motion.div>
             </div>
@@ -165,7 +164,7 @@ export default function HeroSection() {
               >
                 <div className="bg-yellow-light border border-yellow/30 rounded-2xl shadow-lg px-4 py-3 max-w-[200px] animate-float-slow">
                   <p className="text-xs sm:text-sm font-semibold text-text-main leading-snug">
-                    Plant a tree with every order
+                    Hathras ki galiyaan, apne ghar tak delivery
                   </p>
                 </div>
               </motion.div>
