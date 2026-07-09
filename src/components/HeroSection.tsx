@@ -3,11 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import PlayStoreBadge from "./PlayStoreBadge";
-import AppLaunchModal from "./AppLaunchModal";
+
 
 export default function HeroSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -73,15 +71,6 @@ export default function HeroSection() {
                 Fresh, hot, and right on time. We navigate the lanes so you don&apos;t have to.
               </motion.p>
 
-              {/* Play Store Download Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="flex items-center justify-center lg:justify-start"
-              >
-                <PlayStoreBadge height={56} onClick={() => setIsModalOpen(true)} className="mx-auto lg:mx-0" />
-              </motion.div>
 
               {/* Mobile-only: Quick stats row */}
               <motion.div
@@ -191,7 +180,7 @@ export default function HeroSection() {
       </section>
 
       {/* App Launch Modal */}
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }

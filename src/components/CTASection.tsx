@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AppLaunchModal from "./AppLaunchModal";
 
 export default function CTASection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -34,7 +32,7 @@ export default function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open("https://play.google.com/store/apps/details?id=com.platoos.customer", "_blank")}
                 id="cta-order-now"
                 className="mt-8 px-8 py-3.5 bg-yellow text-green-dark font-bold text-sm rounded-full hover:bg-yellow-dark transition-all duration-300 shadow-md self-start cursor-pointer"
               >
@@ -65,7 +63,7 @@ export default function CTASection() {
       </section>
 
       {/* App Launch Modal */}
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AppLaunchModal from "./AppLaunchModal";
 
 const companyLinks = [
   { label: "Home", href: "/" },
@@ -58,7 +57,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -88,15 +86,6 @@ export default function Footer() {
                 pasand ka khana — street food se lekar restaurant meals tak.
               </p>
 
-              {/* Play Store Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsModalOpen(true)}
-                className="px-6 py-2.5 bg-yellow text-green-dark font-bold text-sm rounded-full hover:bg-yellow-dark transition-all duration-300 shadow-md cursor-pointer"
-              >
-                📲 Download App
-              </motion.button>
             </div>
 
             {/* Company */}
@@ -232,7 +221,7 @@ export default function Footer() {
       </footer>
 
       {/* App Launch Modal */}
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import AppLaunchModal from "./AppLaunchModal";
 
 interface FoodItem {
   name: string;
@@ -91,7 +90,6 @@ const cardVariants: Variants = {
 
 export default function TimeFoodCategories() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const idx = getCurrentPeriodIndex();
@@ -146,7 +144,7 @@ export default function TimeFoodCategories() {
                 key={item.name}
                 variants={cardVariants}
                 whileHover={{ scale: 1.03 }}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open("https://play.google.com/store/apps/details?id=com.platoos.customer", "_blank")}
                 className="flex-shrink-0 flex flex-col items-center text-center cursor-pointer group"
               >
                 <div className="relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] mb-4 md:mb-6 rounded-full overflow-hidden shadow-none group-hover:opacity-90 transition-opacity duration-300">
@@ -167,7 +165,7 @@ export default function TimeFoodCategories() {
         </div>
       </section>
 
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }

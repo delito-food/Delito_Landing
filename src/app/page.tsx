@@ -10,6 +10,7 @@ import CTASection from "@/components/CTASection";
 import DelitoApps from "@/components/DelitoApps";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SectionImage from "@/components/SectionImage";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <DiscoverFlavors />
       <CTASection />
       <DelitoApps />
+      <SectionImage />
       <Footer />
       <WhatsAppButton />
     </main>

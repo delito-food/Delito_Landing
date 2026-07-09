@@ -4,10 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Tag, Truck } from "lucide-react";
-import AppLaunchModal from "./AppLaunchModal";
 
 export default function PromotionsDelivery() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -95,7 +93,7 @@ export default function PromotionsDelivery() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => window.open("https://play.google.com/store/apps/details?id=com.platoos.customer", "_blank")}
                   id="promo-order-now"
                   className="px-8 py-3 bg-yellow text-green-dark font-bold text-sm rounded-full hover:bg-yellow-dark transition-all duration-300 shadow-md cursor-pointer"
                 >
@@ -108,7 +106,7 @@ export default function PromotionsDelivery() {
       </section>
 
       {/* App Launch Modal */}
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }

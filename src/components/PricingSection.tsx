@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import AppLaunchModal from "./AppLaunchModal";
 
 const comparisons = [
   { item: "Chicken Biryani", others: 350, delito: 228 },
@@ -25,7 +24,6 @@ const rowVariants: Variants = {
 };
 
 export default function PricingSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -121,7 +119,7 @@ export default function PricingSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open("https://play.google.com/store/apps/details?id=com.platoos.customer", "_blank")}
                 className="px-8 py-3.5 bg-yellow text-green-dark font-bold text-sm rounded-full hover:bg-yellow-dark transition-all duration-300 shadow-lg shadow-yellow/20 cursor-pointer"
               >
                 Start Saving Now
@@ -228,10 +226,7 @@ export default function PricingSection() {
         </div>
       </section>
 
-      <AppLaunchModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      
     </>
   );
 }

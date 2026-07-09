@@ -4,8 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import PlayStoreBadge from "./PlayStoreBadge";
-import AppLaunchModal from "./AppLaunchModal";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -17,7 +16,6 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -58,11 +56,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Desktop Action – Download from Play Store */}
-            <div className="hidden lg:flex items-center">
-              <PlayStoreBadge height={40} onClick={() => setIsModalOpen(true)} />
-            </div>
-
             {/* Mobile Menu Toggle */}
             <button
               id="navbar-mobile-toggle"
@@ -99,10 +92,6 @@ export default function Navbar() {
                     {link.label}
                   </motion.a>
                 ))}
-
-                <div className="pt-4 border-t border-white/10">
-                  <PlayStoreBadge height={44} onClick={() => { setIsOpen(false); setIsModalOpen(true); }} />
-                </div>
               </div>
             </motion.div>
           )}
@@ -110,7 +99,7 @@ export default function Navbar() {
       </motion.nav>
 
       {/* App Launch Modal */}
-      <AppLaunchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
     </>
   );
 }
