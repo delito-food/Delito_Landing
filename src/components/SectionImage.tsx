@@ -3,7 +3,7 @@ export default function SectionImage() {
   return (
     <section className="w-full flex justify-center leading-none">
       <img
-        src="/section.png"
+        src="/section1.png"
         alt="Section banner"
         className="w-full h-auto block"
       />
