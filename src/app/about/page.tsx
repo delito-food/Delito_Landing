@@ -51,13 +51,6 @@ const values = [
   },
 ];
 
-const stats = [
-  { number: "10+", label: "Restaurant Partners" },
-  { number: "1000+", label: "Happy Customers" },
-  { number: "5000+", label: "Meals Delivered" },
-  { number: "100+", label: "Trees Planted" },
-];
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -223,37 +216,6 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center p-6 rounded-2xl hover:bg-green-pale/50 transition-colors duration-300"
-              >
-                <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-mid">
-                  {stat.number}
-                </p>
-                <p className="mt-2 text-sm text-text-muted font-medium">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
