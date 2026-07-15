@@ -46,7 +46,7 @@ interface OverlayProps {
 }
 
 export function CountdownOverlay({ isOpen, onClose }: OverlayProps) {
-  const timeLeft = useCountdown("2026-07-20T00:00:00");
+  const timeLeft = useCountdown("2026-07-26T00:00:00");
 
   return (
     <AnimatePresence>
@@ -101,7 +101,7 @@ export function CountdownOverlay({ isOpen, onClose }: OverlayProps) {
             </div>
 
             <p className="absolute bottom-6 sm:bottom-10 text-text-muted/50 font-bold uppercase tracking-[0.3em] text-xs sm:text-sm">
-              Hathras Launch
+              Launching 26 July in Hathras
             </p>
           </div>
         </motion.div>
@@ -111,13 +111,13 @@ export function CountdownOverlay({ isOpen, onClose }: OverlayProps) {
 }
 
 export function CountdownNavbar() {
-  const timeLeft = useCountdown("2026-07-20T00:00:00");
+  const timeLeft = useCountdown("2026-07-26T00:00:00");
 
   return (
     <div className="flex items-center gap-1.5 sm:gap-3 ml-auto mr-3 lg:mr-0 border border-yellow/20 px-2 py-1 sm:px-4 sm:py-1.5 bg-yellow/5">
       <div className="hidden md:flex flex-col items-end mr-2">
          <span className="text-yellow text-[9px] sm:text-[10px] font-bold uppercase tracking-wider leading-none">Hathras Launch</span>
-         <span className="text-white text-[10px] sm:text-xs font-semibold leading-none mt-1">July 20, 2026</span>
+         <span className="text-white text-[10px] sm:text-xs font-semibold leading-none mt-1">July 26, 2026</span>
       </div>
       
       {[
