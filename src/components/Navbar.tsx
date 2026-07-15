@@ -1,10 +1,12 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { CountdownOverlay, CountdownNavbar } from "./LaunchCountdown";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -16,6 +18,21 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    const overlayClosed = sessionStorage.getItem("delito_launch_overlay_closed");
+    if (!overlayClosed) {
+      setIsOverlayOpen(true);
+    }
+  }, []);
+
+  const handleCloseOverlay = () => {
+    setIsOverlayOpen(false);
+    sessionStorage.setItem("delito_launch_overlay_closed", "true");
+  };
 
   return (
     <>
@@ -34,15 +51,15 @@ export default function Navbar() {
                 alt="Delito Logo"
                 width={150}
                 height={150}
-                className="w-25 h-25 md:w-25 md:h-25 object-contain"
+                className="w-20 h-20 md:w-25 md:h-25 object-contain"
               />
-              <div className="flex items-center gap-0">
-
-              </div>
             </a>
 
+            {/* Countdown inside Navbar (shown when overlay is closed) */}
+            {hasMounted && !isOverlayOpen && <CountdownNavbar />}
+
             {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8 ml-auto">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -60,7 +77,7 @@ export default function Navbar() {
             <button
               id="navbar-mobile-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white p-2"
+              className="lg:hidden text-white p-2 ml-2 shrink-0"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,8 +115,11 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* App Launch Modal */}
-      
+      {/* App Launch Overlay */}
+      {hasMounted && (
+        <CountdownOverlay isOpen={isOverlayOpen} onClose={handleCloseOverlay} />
+      )}
     </>
   );
 }
+
