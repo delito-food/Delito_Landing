@@ -1,3 +1,5 @@
+
+import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TimeFoodCategories from "@/components/TimeFoodCategories";
@@ -12,6 +14,14 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SectionImage from "@/components/SectionImage";
 
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to Delito! Get the best street food and restaurant dishes delivered hot and fresh in Hathras. Order online now for fast delivery.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <main className="flex-1">
@@ -19,15 +29,16 @@ export default function Home() {
       <HeroSection />
       <TimeFoodCategories />
       <FeaturedFoods />
+      <SectionImage />
+      <DiscoverFlavors />
       <PricingSection />
       <PromotionsDelivery />
       <PartnersBar />
-      <DiscoverFlavors />
-      <CTASection />
       <DelitoApps />
-      <SectionImage />
+      <CTASection />
       <Footer />
       <WhatsAppButton />
     </main>
   );
 }
+
