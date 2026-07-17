@@ -6,11 +6,11 @@ import Script from "next/script";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.delitofoods.com"),
   title: {
-    default: "Delito Foods — Best Food Delivery in Hathras",
+    default: "Delito Foods ï¿½ Best Food Delivery in Hathras",
     template: "%s | Delito Foods",
   },
   description:
-    "Delito Foods (delitofoods) brings you the best local flavors — from your favorite street vendors to top restaurants in Hathras. Order online now with Delito.",
+    "Delito Foods (delitofoods) brings you the best local flavors ï¿½ from your favorite street vendors to top restaurants in Hathras. Order online now with Delito.",
   keywords: [
     "delito",
     "delitofoods",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   creator: "Delito Foods",
   publisher: "Delito Foods",
   openGraph: {
-    title: "Delito Foods — Street ka Swaad. Restaurant ki Shaan.",
+    title: "Delito Foods ï¿½ Street ka Swaad. Restaurant ki Shaan.",
     description:
-      "Start your day with perfect local flavors—from your favorite street vendors to top restaurants.",
+      "Start your day with perfect local flavorsï¿½from your favorite street vendors to top restaurants.",
     url: "https://www.delitofoods.com",
     siteName: "Delito Foods",
     images: [
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Delito Foods — Food Delivery App",
+    title: "Delito Foods ï¿½ Food Delivery App",
     description:
-      "Start your day with perfect local flavors—from your favorite street vendors to top restaurants.",
+      "Start your day with perfect local flavorsï¿½from your favorite street vendors to top restaurants.",
     images: ["/images/delito.png"],
   },
   robots: {
