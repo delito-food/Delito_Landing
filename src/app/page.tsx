@@ -29,11 +29,11 @@ export default function Home() {
       <HeroSection />
       <TimeFoodCategories />
       <FeaturedFoods />
-      <SectionImage />
       <DiscoverFlavors />
       <PricingSection />
       <PromotionsDelivery />
       <PartnersBar />
+      <SectionImage />
       <DelitoApps />
       <CTASection />
       <Footer />
