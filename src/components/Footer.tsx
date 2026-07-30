@@ -15,6 +15,7 @@ const resourceLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "Privacy Policy", href: "/legal" },
   { label: "Terms & Conditions", href: "/legal" },
+  { label: "Verify Certificate", href: "/certificate" },
 ];
 
 const socialLinks = [

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Completion Certificate — DELITO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green-dark: #1a4331;
+            --green-mid: #2d6a4f;
+            --green-pale: #e8f5e9;
+            --yellow: #ffcc00;
+            --yellow-dark: #e6b800;
+            --yellow-light: #fffaed;
+            --text-main: #1a1a2e;
+            --text-body: #444444;
+            --text-muted: #888888;
+            --border: #e2e2e2;
+            --white: #ffffff;
+        }
+
+        html, body {
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-body);
+            background: var(--white);
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            position: relative;
+        }
+
+        /* =============================================
+           PAGE FRAME
+           ============================================= */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative border */
+        .page-border {
+            position: absolute;
+            inset: 10mm;
+            border: 2px solid var(--green-dark);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .page-border::before {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border: 1px solid rgba(26, 67, 49, 0.15);
+            border-radius: 3px;
+        }
+
+        /* Corner accents */
+        .corner {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            z-index: 3;
+        }
+
+        .corner::before, .corner::after {
+            content: '';
+            position: absolute;
+            background: var(--yellow);
+        }
+
+        .corner::before {
+            width: 100%;
+            height: 3px;
+        }
+
+        .corner::after {
+            width: 3px;
+            height: 100%;
+        }
+
+        .corner-tl { top: 10mm; left: 10mm; }
+        .corner-tl::before { top: 0; left: 0; }
+        .corner-tl::after { top: 0; left: 0; }
+
+        .corner-tr { top: 10mm; right: 10mm; }
+        .corner-tr::before { top: 0; right: 0; }
+        .corner-tr::after { top: 0; right: 0; }
+
+        .corner-bl { bottom: 10mm; left: 10mm; }
+        .corner-bl::before { bottom: 0; left: 0; }
+        .corner-bl::after { bottom: 0; left: 0; }
+
+        .corner-br { bottom: 10mm; right: 10mm; }
+        .corner-br::before { bottom: 0; right: 0; }
+        .corner-br::after { bottom: 0; right: 0; }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-35deg);
+            font-family: 'Poppins', sans-serif;
+            font-size: 140px;
+            font-weight: 800;
+            letter-spacing: 16px;
+            color: rgba(26, 67, 49, 0.025);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* =============================================
+           COMPANY HEADER
+           ============================================= */
+        .company-header {
+            padding: 16mm 18mm 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .company-logo {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--green-dark);
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+        }
+
+        .company-tagline {
+            font-size: 8.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .company-right {
+            text-align: right;
+            font-size: 8px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .company-right strong {
+            color: var(--text-body);
+            font-weight: 600;
+        }
+
+        /* Divider line */
+        .header-divider {
+            margin: 10px 18mm 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green-dark) 60%, var(--yellow) 60%);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =============================================
+           CERTIFICATE BODY
+           ============================================= */
+        .certificate-body {
+            padding: 14px 20mm 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-label {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .cert-title {
+            text-align: center;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--green-dark);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .cert-underline {
+            width: 80px;
+            height: 3px;
+            background: var(--yellow);
+            margin: 0 auto 10px;
+            border-radius: 2px;
+        }
+
+        /* Date & Reference */
+        .cert-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 10px;
+            color: var(--text-body);
+        }
+
+        .cert-meta .meta-label {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .cert-concern {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--green-dark);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* Main text block */
+        .cert-text {
+            font-size: 11px;
+            line-height: 1.7;
+            color: var(--text-body);
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+        .cert-text .name {
+            font-weight: 700;
+            color: var(--green-dark);
+            font-size: 12.5px;
+        }
+
+        .cert-text .role {
+            font-weight: 600;
+            color: var(--green-mid);
+        }
+
+        .cert-text .highlight {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Key Contributions */
+        .contrib-title {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--green-dark);
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid var(--yellow);
+            display: inline-block;
+        }
+
+        .contrib-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
+        }
+
+        .contrib-list li {
+            font-size: 10px;
+            line-height: 1.55;
+            color: var(--text-body);
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .contrib-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 6px;
+            height: 6px;
+            background: var(--green-dark);
+            border-radius: 2px;
+        }
+
+        /* Closing paragraph */
+        .cert-closing {
+            font-size: 10.5px;
+            line-height: 1.65;
+            color: var(--text-body);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .cert-wish {
+            font-size: 10.5px;
+            font-weight: 500;
+            color: var(--text-body);
+            margin-bottom: 16px;
+        }
+
+        /* =============================================
+           SIGNATURE BLOCK
+           ============================================= */
+        .signature-section {
+            padding: 0 20mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sig-block {
+            text-align: center;
+        }
+
+        .sig-line {
+            width: 160px;
+            height: 1px;
+            background: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .sig-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .sig-sublabel {
+            font-size: 8.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .date-block {
+            text-align: left;
+        }
+
+        .date-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .date-line {
+            width: 140px;
+            height: 1px;
+            background: var(--text-main);
+            margin-top: 18px;
+        }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .cert-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 10mm;
+            right: 10mm;
+            z-index: 1;
+        }
+
+        .footer-bar {
+            background: var(--green-dark);
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .footer-item {
+            font-size: 7.5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-item strong {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        .footer-sep {
+            width: 1px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- Decorative border & corners -->
+        <div class="page-border"></div>
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <!-- Watermark -->
+        <div class="watermark">DELITO</div>
+
+        <!-- Company Header -->
+        <div class="company-header">
+            <div class="company-left">
+                <img src="delito.png" alt="Delito Logo" class="company-logo">
+                <div class="company-info">
+                    <div class="company-name">DELITO</div>
+                    <div class="company-tagline">Food Discovery & Delivery Platform</div>
+                </div>
+            </div>
+            <div class="company-right">
+                <strong>GSTIN:</strong> 09CAMPV6339R1ZD<br>
+                <strong>FSSAI:</strong> 22726884000160<br>
+                Gali No-01, Verma Colony, Hathras, UP - 204101<br>
+                Delitofoods.com
+            </div>
+        </div>
+        <div class="header-divider"></div>
+
+        <!-- Certificate Content -->
+        <div class="certificate-body">
+
+            <div class="cert-label">Certificate of Completion</div>
+            <div class="cert-title">Internship Completion Certificate</div>
+            <div class="cert-underline"></div>
+
+            <!-- Date & Reference -->
+            <div class="cert-meta">
+                <div>
+                    <span class="meta-label">Date:</span> 19 July 2026
+                </div>
+            </div>
+
+            <!-- To Whomsoever -->
+            <div class="cert-concern">To Whom It May Concern</div>
+
+            <p class="cert-text">
+                This is to certify that <span class="name">Mr. Anmol Upadhyay</span> has successfully completed his internship as a
+                <span class="role">Software Development Intern</span> at
+                <span class="highlight">Delito</span>, a food delivery and restaurant aggregation platform,
+                from <span class="highlight">5 April 2026</span> to <span class="highlight">1 June 2026</span>.
+            </p>
+
+            <p class="cert-text">
+                During the internship, he demonstrated strong technical leadership, architectural vision, and dedication while contributing to the development of our web and mobile applications.
+            </p>
+
+            <div class="contrib-title">Key Responsibilities & Contributions</div>
+            <ul class="contrib-list">
+                <li><strong>Website Development:</strong> Designed and developed the main website (<strong>www.delitofoods.com</strong>) using <strong>Next.js</strong>, focusing on improving load times and overall performance.</li>
+                <li><strong>Mobile App Development:</strong> Built the customer-facing Android application using <strong>Kotlin</strong>, and integrated <strong>Firebase</strong> for backend services and authentication.</li>
+                <li><strong>Architecture & Workflow:</strong> Streamlined app production workflows and participated in system architecture decisions to improve reliability.</li>
+            </ul>
+
+            <p class="cert-closing">
+                Throughout the internship, Mr. Anmol Upadhyay consistently displayed excellent problem-solving abilities, technical expertise, and the capability to execute complex architectural solutions effectively. His contributions were highly valuable to the successful growth of our digital infrastructure.
+            </p>
+            <p class="cert-wish">
+                We appreciate his dedication and wish him every success in his future academic and professional endeavors.
+            </p>
+        </div>
+
+        <!-- Signature -->
+        <div class="signature-section">
+            <div class="date-block">
+                <div class="date-label">Date</div>
+                <div style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-top: 6px;">02/06/2026</div>
+            </div>
+            <div class="sig-block">
+                <div style="font-size: 11px; font-weight: 700; color: var(--green-dark); margin-bottom: 2px;">For Delito</div>
+                <img src="deepanshusign.png" alt="Signature" style="height: 40px; width: auto; display: block; margin: 4px auto 4px;">
+                <div class="sig-line"></div>
+                <div class="sig-label">Authorized Signatory</div>
+                <div class="sig-sublabel">Deepanshu Verma, Proprietor</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="cert-footer">
+            <div class="footer-bar">
+                <span class="footer-item"><strong>Web:</strong> Delitofoods.com</span>
+                <span class="footer-sep"></span>
+                <span class="footer-item"><strong>Email:</strong> Delitosupportt@gmail.com</span>
+                <span class="footer-sep"></span>
+                <span class="footer-item"><strong>GSTIN:</strong> 09CAMPV6339R1ZD</span>
+                <span class="footer-sep"></span>
+                <span class="footer-item"><strong>FSSAI:</strong> 22726884000160</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
