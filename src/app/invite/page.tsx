@@ -72,7 +72,7 @@ export default function InvitePage() {
 
         <div className="space-y-4">
           <a 
-            href="https://play.google.com/store/apps/details?id=com.example.platoos" 
+            href="https://play.google.com/store/apps/details?id=com.platoos.customer" 
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-green-600 text-white font-black py-4 px-6 rounded-none hover:bg-green-700 active:bg-green-800 transition-colors uppercase tracking-widest flex items-center justify-between group"
