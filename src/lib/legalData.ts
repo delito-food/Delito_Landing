@@ -24,8 +24,8 @@ export interface AppLegalDocs {
 export const customerDocs: AppLegalDocs = {
   privacyPolicy: {
     title: "Customer Privacy Policy",
-    effectiveDate: "April 26, 2026",
-    version: "1.0",
+    effectiveDate: "November 1, 2026",
+    version: "1.2",
     intro:
       "Welcome to Delito. We are committed to protecting your personal information and your right to privacy. This Customer Privacy Policy explains how Delito collects, uses, stores, and protects your data when you use our food delivery platform, mobile application, and related services. By creating an account or placing an order through Delito, you agree to the terms described in this policy.",
     sections: [
@@ -37,7 +37,7 @@ export const customerDocs: AppLegalDocs = {
             heading: "1.1 Information You Provide Directly",
             content: [
               "Full name and profile photo",
-              "Email address and mobile phone number",
+              "Email address and mobile phone number (your number is verified with a one-time password sent by SMS when you sign up, including when you sign up with Google)",
               "Delivery addresses and location preferences",
               "Payment details (processed securely via third-party payment gateways)",
               "Order history, special instructions, and food preferences",
@@ -54,14 +54,16 @@ export const customerDocs: AppLegalDocs = {
               "GPS and location data (only when you actively use the app and with your permission)",
               "Cookies and similar tracking technologies for session management and personalization",
               "Crash reports and performance diagnostics",
+              "Mobile advertising identifier (Google Advertising ID) and app events recorded automatically by the Meta SDK and Google Firebase Analytics, such as app installs, app opens, and which features you use (for example, searches)",
             ],
           },
           {
             heading: "1.3 Information from Third Parties",
             content: [
-              "Login data if you sign in using Google, Facebook, or Apple ID",
+              "Your name, email address, and profile photo from your Google account if you sign in with Google",
               "Payment verification and fraud detection data from payment processors",
               "Promotional data from marketing partners (only with your opt-in consent)",
+              "Advertising attribution data from Meta Platforms (Facebook and Instagram) and Google Play, such as which advertisement or campaign led you to install the app",
             ],
           },
         ],
@@ -76,6 +78,7 @@ export const customerDocs: AppLegalDocs = {
           "Process payments, apply discounts, and manage refunds or cancellations",
           "Communicate important updates, service alerts, and policy changes",
           "Analyse usage patterns to improve app performance and user experience",
+          "Measure the effectiveness of our advertising on Facebook and Instagram and show relevant Delito ads to you and to people similar to our customers",
           "Comply with applicable legal obligations and regulatory requirements",
           "Detect, investigate, and prevent fraudulent or unauthorized activity",
           "Send you promotional offers and marketing communications (only with your consent)",
@@ -85,7 +88,7 @@ export const customerDocs: AppLegalDocs = {
         heading: "3. Legal Basis for Processing",
         content: [
           "Contractual necessity: To fulfil your orders and deliver our services",
-          "Legitimate interests: To improve our platform, ensure security, and prevent fraud",
+          "Legitimate interests: To improve our platform, ensure security, prevent fraud, and measure the performance of our advertising",
           "Consent: For marketing communications and non-essential cookies",
           "Legal obligation: To comply with applicable laws and regulations",
         ],
@@ -107,10 +110,24 @@ export const customerDocs: AppLegalDocs = {
           {
             heading: "4.3 With Service Providers",
             content:
-              "We engage trusted third-party providers for payment processing, SMS delivery, cloud storage, analytics, and customer support. These partners process data only as instructed by Delito and under strict data protection agreements.",
+              "We engage trusted third-party providers to run the Platform. Each receives only the data it needs, processes it only as instructed by Delito, and is bound by data protection terms:",
+              "Google Firebase (Google Cloud): account sign-in, data storage, push notifications, and crash reporting",
+              "Razorpay: payment processing. Your card, UPI, and bank details are entered with Razorpay and are never stored by Delito",
+              "MSG91: sending one-time passwords (OTPs) by SMS to verify your mobile number",
+              "Google Maps and Ola Maps: address search, maps, and live delivery tracking",
+              "Customer support and communication tools used to answer your queries",
           },
           {
-            heading: "4.4 For Legal Compliance",
+            heading: "4.4 With Advertising and Analytics Partners",
+            content: [
+              "We use the Meta (Facebook) SDK and Google Firebase Analytics in the Delito app. These partners receive your device's advertising identifier, device information, and app events (for example, app install and app open) so that we can measure and improve our advertising campaigns on Facebook and Instagram.",
+              "We do not share your name, phone number, email address, delivery address, or payment details with these advertising partners.",
+              "Data received by Meta is processed in accordance with Meta's Data Policy (https://www.facebook.com/privacy/policy). Data received by Google is processed in accordance with Google's Privacy Policy (https://policies.google.com/privacy).",
+              "You can reset or delete your advertising ID, or opt out of personalized ads, at any time from your Android device: Settings → Google → Ads (or Settings → Privacy → Ads). You can also manage ad preferences in your Facebook or Instagram account settings.",
+            ],
+          },
+          {
+            heading: "4.5 For Legal Compliance",
             content:
               "We may disclose your information to law enforcement, regulatory authorities, or courts when required by law, legal process, or to protect the rights, property, or safety of Delito, its users, or the public.",
           },
@@ -132,7 +149,8 @@ export const customerDocs: AppLegalDocs = {
           "Right to Access: Request a copy of your personal data we hold.",
           "Right to Correction: Update or correct inaccurate personal data through the app or by contacting support.",
           "Right to Erasure: Request deletion of your account and personal data (subject to legal retention requirements).",
-          "Right to Withdraw Consent: Withdraw consent for marketing communications at any time.",
+          "How to delete your account: email Delitosupportt@gmail.com or grievance@delito.in from your registered email address, or mention your registered mobile number, with the subject \"Delete my account\". We confirm the request within 7 days and then delete your data as described in Section 7 (Data Retention).",
+          "Right to Withdraw Consent: Withdraw consent for marketing communications and personalized advertising at any time, including by resetting or deleting your device's advertising ID.",
           "Right to Grievance Redressal: Contact our Grievance Officer for any data-related concerns.",
           "Right to Nominate: Nominate another person to exercise your rights in case of incapacity.",
         ],
@@ -148,7 +166,7 @@ export const customerDocs: AppLegalDocs = {
       {
         heading: "8. Children's Privacy",
         content: [
-          "The Platform is not intended for children under 18 years of age without parental supervision.",
+          "The Platform is not directed at children. It is intended for users aged 18 and above, or for younger users only under the supervision of a parent or guardian.",
           "We do not knowingly collect personal data from children under 18 without verifiable parental consent as required by the DPDP Act, 2023.",
           "If we learn that we have collected data from a child without proper consent, we will delete it promptly.",
         ],
